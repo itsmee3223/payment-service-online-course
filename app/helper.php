@@ -6,7 +6,7 @@ function createPremiumAccess($data)
 {
     $url = env('SERVICE_COURSE_URL') . 'api/my-courses/premium';
     try {
-        $response = Http::get($url, $data);
+        $response = Http::post($url, $data);
         $data = $response->json();
         $data['http_code'] = $response->getStatusCode();
         return $data;
