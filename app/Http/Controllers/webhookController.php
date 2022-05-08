@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\PaymentsLog;
 use App\Models\Order;
 
-class WebhookController extends Controller
+class webhookController extends Controller
 {
     public function midtransHandler(Request $request)
     {
@@ -34,7 +34,7 @@ class WebhookController extends Controller
 
         $realOrderId = explode('-', $orderId);
         $order = Order::find($realOrderId[0]);
-        echo $realOrderId[0];
+
         if (!$order) {
             return response()->json([
                 'status' => 'error',
